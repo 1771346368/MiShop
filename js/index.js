@@ -76,10 +76,10 @@ var bindeventShowList = function() {
   var sideList = e("#show-list")
   var active = 'children-active'
   var children = e('.children')
-  bindEvent(sideList, 'mouseenter', function(event){
+  bindEvent(sideList, 'mouseenter', function(){
     children.classList.add(active)
   })
-  bindEvent(sideList, 'mouseleave', function(event){
+  bindEvent(sideList, 'mouseleave', function(){
     children.classList.remove(active)
   })
 }

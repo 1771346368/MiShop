@@ -10,6 +10,7 @@
 }
 .gua-pos {
   position: absolute;
+  cursor: pointer;
   top:0;
   left: 0;
 }
@@ -62,6 +63,7 @@
   margin-right: 10px;
   background-color: #333;
   opacity: .3;
+  border: 2px solid #999;
   transition: all .3s ease;
   cursor: pointer;
 }
