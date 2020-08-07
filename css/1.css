@@ -1,0 +1,75 @@
+
+.gua-hide {
+  /* display: none; */
+  opacity: 0;
+  /* 用于隐藏和过渡动画 */
+}
+.gua-active {
+  /* display: inline-block; */
+  opacity: 1;
+}
+.gua-pos {
+  position: absolute;
+  top:0;
+  left: 0;
+}
+.gua > img {
+  transition: all .6s ease;
+}
+.gua {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  height: 460px;
+}
+
+#button-next {
+  position:absolute;
+  background: url(https://i1.mifile.cn/f/i/2014/cn/icon/icon-slides.png) no-repeat -125px 50%;
+  width: 41px;
+  height: 69px;
+  top: 50%;
+  right: 0;
+  left: auto;
+  z-index: 10;
+  margin-top: -35px;
+  cursor: pointer;
+  outline: none;
+}
+#button-last {
+  position:absolute;
+  background: url(https://i1.mifile.cn/f/i/2014/cn/icon/icon-slides.png) no-repeat -84px 50%;
+  width: 41px;
+  height: 69px;
+  top: 50%;
+  left: 234px;
+  right: auto;
+  margin-top: -35px;
+  z-index: 10;
+  cursor: pointer;
+  outline: none;
+}
+#button-last:hover, #button-next:hover{
+  background-color: #666;
+}
+.gua-bottom {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 10px;
+  background-color: #333;
+  opacity: .3;
+  transition: all .3s ease;
+  cursor: pointer;
+}
+.bottom-active {
+  opacity: 1;
+}
+.gua-indicators {
+  position:absolute;
+  bottom:10px;
+  left: auto;
+  right: 30px;
+  font-size: 0;
+}

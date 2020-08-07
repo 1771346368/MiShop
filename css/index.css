@@ -273,7 +273,7 @@ a, a:hover {
   width: 1226px;
   height: 460px;
 }
-.img-play img {
+.img-play > img {
   width: 1226px;
   height: 460px;
 }
@@ -351,12 +351,13 @@ li .price {
   margin: 0 auto 8px;
 }
 .bar-div-top {
-  margin-top: 10px;
+  margin-top: 14px!important;
 }
 .bar-a-icon {
   width: 25px;
   height: 40px;
   border: 1px solid #f5f5f5;
+  margin-top: -1px;
   background-color: #fff;
   text-align: center;
   display: block;
@@ -373,7 +374,7 @@ li .price {
   width: 234px;
   height: 460px;
 }
-.site-item ul {
+.site-item > ul {
   height: 420px;
   color: #fff;
   background-color: rgba(105,101,101,.6);
@@ -384,6 +385,7 @@ li .price {
 }
 .site-item-li {
   display: block;
+  overflow: hidden;
 }
 .site-item-li:hover {
   background-color: #ff6700;
@@ -404,7 +406,52 @@ li .price {
   line-height: 16px;
   color: #e0e0e0;
 }
-
+.children {
+  display: none;
+  position: absolute;
+  left: 234px;
+  top: 0;
+  z-index: 25;
+  width: 992px;
+  height: 458px;
+  border: 1px solid #e0e0e0;
+  border-left: 0;
+  background-color: #fff;
+  box-shadow: 0 8px 16px rgba(0,0,0,.18);
+}
+.children-active {
+  display: block!important;
+}
+.children-ul-list {
+  width: 248px;
+  float: left;
+  height: 458px;
+  margin: 0;
+  padding: 2px 0;
+  list-style-type: none;
+}
+.children-li-list {
+  float: left;
+  width: 265px;
+  height: 76px;
+}
+.link {
+  display: block;
+  padding: 18px 20px;
+  line-height: 40px;
+  color: #333;
+  transition: all .2s ease;
+}
+.thump {
+  width: 40px;
+  height: 40px;
+  float: left;
+  margin-right: 12px;
+  vertical-align: middle;
+}
+.text {
+  float: left;
+}
 
 /* 红米下拉布局 */
 /* .redmi-item {

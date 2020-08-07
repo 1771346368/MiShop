@@ -1,12 +1,3 @@
-var e = function(selector) {
-  return document.querySelector(selector);
-}
-var es = function(selector) {
-  return document.querySelectorAll(selector);
-}
-var bindEvent = function(element, eventName, callback) {
-  element.addEventListener(eventName, callback)
-}
 window.textIndex = 0
 window.searchTitleTiemer = setInterval(function() {
   var search = e('.search-text')
@@ -78,12 +69,26 @@ var sideChange = function() {
     window.sidenone = setTimeout(none, 300)
   })
 }
-
+/**
+ * 鼠标移入左侧列表出现商品列表，移出隐藏
+ */
+var bindeventShowList = function() {
+  var sideList = e("#show-list")
+  var active = 'children-active'
+  var children = e('.children')
+  bindEvent(sideList, 'mouseenter', function(event){
+    children.classList.add(active)
+  })
+  bindEvent(sideList, 'mouseleave', function(event){
+    children.classList.remove(active)
+  })
+}
 
 
 
 var __main = function() {
   bindeventCartmenu()
+  bindeventShowList()
   sideChange()
 }
 __main()
