@@ -73,18 +73,26 @@ var sideChange = function() {
  * 鼠标移入左侧列表出现商品列表，移出隐藏
  */
 var bindeventShowList = function() {
-  var sideList = e("#show-list")
+  var sideList = ".site-item-li"
   var active = 'children-active'
   var children = e('.children')
-  bindEvent(sideList, 'mouseenter', function(){
+  bindAll(sideList, 'mouseenter', function(){
     children.classList.add(active)
   })
-  bindEvent(sideList, 'mouseleave', function(){
+  bindAll(sideList, 'mouseleave', function(){
     children.classList.remove(active)
   })
 }
 
 
+var o = {
+  name:'o1',
+  age:12,
+  data:{
+    user:'ooo1'
+  }
+}
+var usern = o?.data?.user
 
 var __main = function() {
   bindeventCartmenu()
