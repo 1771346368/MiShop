@@ -1,0 +1,563 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-family: sans-serif;
+}
+body {
+  font: 14px/1.5 Helvetica Neue,Helvetica,Arial,Microsoft Yahei,Hiragino Sans GB,Heiti SC,WenQuanYi Micro Hei,sans-serif;
+}
+li {
+  display: list-item;
+}
+.hide {
+  display: none!important;
+}
+
+/* 字体图标 如购物车图标*/
+@font-face {font-family: 'iconfont';
+  src: url('iconfont.eot');
+  src: url('iconfont.eot?#iefix') format('embedded-opentype'),
+  url('iconfont.woff') format('woff'),
+  url('iconfont.ttf') format('truetype'),
+  url('iconfont.svg#iconfont') format('svg');
+}
+.iconfont{
+  font-family:"iconfont" !important;
+  font-size:16px;font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+}
+.header {
+  position: relative;
+  height: 40px;
+  font-size: 12px;
+  color: #b0b0b0;
+  background: #333;
+}
+.header > a {
+  display: inline-block;
+  line-height: 40px;
+  
+}
+.container a {
+  color: #b0b0b0;
+  display: inline-block;
+  line-height: 40px;
+}
+.container a:hover {
+  color: #fff;
+}
+.container {
+  width: 1226px;
+  margin-left: auto;
+  margin-right: auto;
+}
+a, a:hover {
+  text-decoration: none;   /* 设置文本装饰 */
+}
+.seq {
+  margin: 0 0.25em;
+  color: #424242;
+}
+.topbar-info {
+  position: relative;
+  float: right;
+  height: 40px;
+  line-height: 40px;
+}
+.site-topbar {
+  background: #424242;
+  text-align: center;
+  position: relative;
+  float: right;
+  width: 120px;
+  height: 40px;
+  z-index: 32;
+  margin-left: 15px;
+  transition: all .2s;
+}
+.site-topbar .cart-mini {
+  display: block;
+}
+.site-topbar a:hover {
+  color: #ff6700;
+}
+.site-topbar .cart-menu {
+  position: absolute;
+  right: 0;
+  top: 40px;
+  width: 316px;
+  height: 0;
+  color: #424242;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, .15);
+  overflow: hidden;
+  z-index: 21;
+  background-color: #fff;
+  transition: height .3s;
+}
+.iconfont-cart {
+  width: 20px;
+  height: 20px;
+  margin-right: 4px;
+  font-size: 20px;
+  line-height: 20px;
+  vertical-align: -4px;   /* 属性设置元素的垂直对齐方式 */
+}
+.site-topbar .cart-menu .msg {
+  padding: 20px 0 20px;
+  margin: 0 20px 20px;
+  text-align: center;
+}
+.menu-content {
+  padding: 20px 0 0;
+}
+.site-header {
+  height: 100px;
+}
+.site-header, .site-header .container{
+  position: relative;
+}
+
+.site-header .header-logo {
+  float: left;
+  width: 62px;
+  margin-top: 22px;
+}
+.ir {
+  text-align: left;
+}
+.iconlogo {
+  color: #fff;
+  font-size: 30px;
+  margin-left: 10px;
+  vertical-align: 20px;
+}
+
+/* 小米官网logo与home图标切换 */
+.nav-logo {
+  float: left;
+  width: 62px;
+  margin-top: 22px;
+}
+.nav-logo .logo
+{
+	position: relative;/*这个可以回过头来再看*/
+	display: block;
+	width: 55px;
+	height: 55px;
+	background-color: #ff6700;
+	overflow:hidden; /*这个也很重要喔，不加会有惊喜*/
+}
+.nav-logo .logo:after,.nav-logo .logo:before
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 55px;
+	width: 55px;
+	content: "";
+	transition: transform .2s;/*这个也很重要喔，加在hover里会有惊喜*/
+}
+.nav-logo .logo:after
+{
+	background: url(../images/logo-hover.png) no-repeat 50% 50%;
+	margin-left: -55px;
+}
+.nav-logo .logo:before
+{
+	background: url(../images/1.png) no-repeat 50% 50%;
+}
+.nav-logo .logo:hover:after,.nav-logo .logo:hover:before /*这里面的:hover  与:before 之间不要有空格喔，不然也会有问题喔*/
+{
+	transform: translate(55px);
+}
+/* 以上为logo变换代码 */
+.header-nav {
+  float: left;
+  width: 850px;
+}
+.header-search {
+  float: right;
+  width: 296px;
+  margin-top: 25px;
+}
+.search-form {
+  position: relative;
+  width: 296px;
+  height: 50px;
+}
+.search-text {
+  position: absolute;
+  top: 0;
+  right: 51px;
+  width: 223px;
+  height: 48px;
+  padding: 0 10px;
+  border: 1px solid #e0e0e0;
+  outline: 0;
+  /* outline 不去掉会让边框颜色被遮住 */
+  transition: all .2s;
+}
+.search-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 52px;
+  height: 48px;
+  outline: 0;
+  background-color: #fff;
+  text-align: center;
+  cursor: pointer;
+  transition: all .2s ease;
+  border: 1px solid #e0e0e0;
+}
+.search-text:focus, .search-btn:focus{
+  border: 1px solid #ff6700;
+}
+.search-btn:hover {
+  background-color: #ff6700;
+}
+.nav-list {
+  position: relative;
+  float: left;
+  width: 1100px;
+  height: 88px;
+  margin: 0;
+  padding: 12px 0 0 30px;
+  list-style-type: none;
+  font-size: 16px;
+}
+.nav-category {
+  position: relative;
+  float: left;
+  width: 127px;
+  padding-right: 15px;
+  margin: 10px 0 0 -20px;
+}
+.nav-item {
+  float: left;
+}
+.link-category {
+  display: block;
+  padding: 20px 0 38px;
+  text-align: right;
+  color: #333;
+}
+.site-category {
+  position: absolute;
+  top: 88px;
+  left: -92px;
+  width: 234px;
+  height: 460px;
+  font-size: 14px;
+}
+.site-category-list {
+  height: 420px;
+  border: 0;
+  color: #fff;
+  background: rgba(105, 101, 101, .6);
+  list-style-type: none;
+  padding: 20px 0;
+}
+.img-play {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  width: 1226px;
+  height: 460px;
+}
+.img-play > img {
+  width: 1226px;
+  height: 460px;
+}
+.nav-item-left span {
+  margin-left: 40px!important;
+}
+.link-category span {
+  margin-left: 20px;
+}
+.link-category a {
+  color: #333;
+  line-height: 40px;
+}
+.link-category a:hover {
+  color: #ff6700;
+}
+.side-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 22;
+  background-color: #fff;
+  transition: all .3s ease;
+  border-top: #ccc solid 1px;
+  box-shadow: 0 3px 4px rgba(0,0,0,.18);
+  overflow: hidden;
+}
+.side-up {
+  height: 0px;
+}
+.side-down {
+  height: 229px;
+}
+.side-item li {
+  color: #fff;
+  float: left;
+  width: 180px;
+  padding: 35px 12px 20px;
+  text-align: center;
+}
+.img-content {
+  position: relative;
+  width: 100%;
+}
+li {
+  list-style-type: none;
+  display: inline;
+}
+.figure-first {
+  margin: 0 auto 16px;
+}
+.figure {
+  border-left: 1px solid #ccc;
+  margin: 0 auto 16px;
+}
+li .title {
+  color: #333;
+}
+li .price {
+  line-height: 20px;
+  color: #ff6700;
+}
+.side-bar {
+  position: fixed;
+  left: 50%;
+  margin-left: 613px;
+  right: auto;
+  bottom: 40px;
+}
+.bar-div-icon {
+  width: 20px;
+  height: 20px;
+  padding-top: 10px;
+  margin: 0 auto 8px;
+}
+.bar-div-top {
+  margin-top: 14px!important;
+}
+.bar-a-icon {
+  width: 25px;
+  height: 40px;
+  border: 1px solid #f5f5f5;
+  margin-top: -1px;
+  background-color: #fff;
+  text-align: center;
+  display: block;
+}
+.bar-icon {
+  width: 20px;
+  height: 20px;
+}
+.site-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 21;
+  width: 234px;
+  height: 460px;
+}
+.site-item > ul {
+  height: 420px;
+  color: #fff;
+  background-color: rgba(105,101,101,.6);
+  padding: 20px 0;
+  margin: 0;
+  font-size: 14px;
+  list-style-type: none;
+}
+.site-item-li {
+  display: block;
+  overflow: hidden;
+}
+.site-item-li:hover {
+  background-color: #ff6700;
+}
+.site-item-a {
+  position: relative;
+  display: block;
+  padding-left: 30px;
+  height: 42px;
+  line-height: 42px;
+  color: #fff;
+}
+.icon-arrow-right {
+  position: absolute;
+  top: 12px;
+  right: 20px;
+  font-size: 16px;
+  line-height: 16px;
+  color: #e0e0e0;
+}
+.children {
+  display: none;
+  position: absolute;
+  left: 234px;
+  top: 0;
+  z-index: 25;
+  width: 992px;
+  height: 458px;
+  border: 1px solid #e0e0e0;
+  border-left: 0;
+  background-color: #fff;
+  box-shadow: 0 8px 16px rgba(0,0,0,.18);
+}
+.children-active {
+  display: block!important;
+}
+.children-ul-list {
+  width: 248px;
+  float: left;
+  height: 458px;
+  margin: 0;
+  padding: 2px 0;
+  list-style-type: none;
+}
+.children-li-list {
+  float: left;
+  width: 265px;
+  height: 76px;
+}
+.link {
+  display: block;
+  padding: 18px 20px;
+  line-height: 40px;
+  color: #333;
+  transition: all .2s ease;
+}
+.thump {
+  width: 40px;
+  height: 40px;
+  float: left;
+  margin-right: 12px;
+  vertical-align: middle;
+}
+.text {
+  float: left;
+}
+.home-sub {
+  position: relative;
+  height: 173px;
+  margin-top: 14px;
+  margin-bottom: 26px;
+  /* margin-left: -14px; */
+}
+.span4 {
+  width: 234px;
+}
+.span16 {
+  width: 978px;
+  margin-left: 14px;
+}
+.span4, .span16 {
+  float: left;
+  /* margin-left: 14px; */
+  min-height: 1px;
+}
+.home-cannel-list {
+  margin: 0;
+  padding: 3px;
+  list-style-type: none;
+  font-size: 12px;
+  text-align: center;
+  background-color: #5f5750;
+  height: 170px;
+  clear: both;
+}
+.home-cannel-list li {
+  position: relative;
+  float: left;
+  width: 70px;
+  height: 82px;
+  padding: 0 3px;
+}
+.home-cannel-list li::before {
+  position: absolute;
+  content: "";
+  background-color: #665e57;
+  top: -1px;
+  left: 6px;
+  width: 64px;
+  height: 1px;
+}
+.home-cannel-list li::after {
+  position: absolute;
+  content: "";
+  background-color: #665e57;
+  top: 6px;
+  left: 0px;
+  width: 1px;
+  height: 70px;
+}
+.home-cannel-list a {
+  display: block;
+  padding-top: 18px;
+  text-overflow: ellipsis;
+  color: #fff;
+  opacity: .7;
+  transition: all .2s ease;
+}
+.home-cannel-list a:hover {
+  opacity: 1;
+}
+.home-cannel-list img{
+  display: block;
+  width: 24px;
+  height: 24px;
+  margin: 0 auto 4px;
+}
+.home-list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+.home-list li {
+  float: left;
+  width: 313px;
+  height: 176px;
+  margin-left: 13px;
+  transition: all .2s linear;
+}
+.home-list li:hover {
+  box-shadow: 1px 1px 20px #999;
+}
+.home-list .first {
+  margin-left: 14px;
+}
+.home-list a {
+  display: block;
+  height: 176px;
+}
+.home-list img {
+  display: block;
+  width: 316px;
+  height: 176px;
+}
+.page-main {
+  margin-top: 4px;
+  margin-bottom: 12px;
+  background-color: #f5f5f5;
+}
+/* 红米下拉布局 */
+/* .redmi-item {
+  position: absolute;
+  top: 100px;
+  left: -141px;
+  height: 229px;
+  width: 100vw;
+  background-color: rgba(200,255,255,0.67);
+  z-index: 20;
+} */
