@@ -30,7 +30,7 @@ var bindeventCartmenu = function () {
  * 
  */
 var sideChange = function () {
-  var item = e('.nav-item-left')
+  var item = '.nav-item'
   var content = e('.side-item')
   var down = function () {
     content.classList.remove('side-up')
@@ -48,12 +48,12 @@ var sideChange = function () {
     clearTimeout(window.sideup)
     clearTimeout(window.sidenone)
   }
-  bindEvent(item, 'mouseenter', function () {
+  bindAll(item, 'mouseenter', function () {
     clearT()
     content.style = 'display:block;'
     window.sidedown = setTimeout(down, 300)
   })
-  bindEvent(item, 'mouseleave', function () {
+  bindAll(item, 'mouseleave', function () {
     clearT()
     window.sideup = setTimeout(up, 200)
     window.sidenone = setTimeout(none, 300)
@@ -83,13 +83,99 @@ var bindeventShowList = function () {
     children.classList.remove(active)
   })
 }
+// 防抖
+var debounce = function (func, delay) {
+  var timeout;
+  return function () {
+    clearTimeout(timeout);
+    var context = this, args = arguments
+    timeout = setTimeout(function () {
+      func.apply(context, args);
+    }, delay)
+  };
+}
+
+// 返回顶部
+var bindEventBackTop = function () {
+  var top = e('.bar-div-top')
+  var timer = null;
+  var oScroll = true;
+  window.onmousewheel = function () {
+    // console.log('body scroll')
+    if (oScroll) {
+      clearInterval(timer);
+    }
+    oScroll = false;
+  }
+  bindEvent(top, 'click', function () {
+    // console.log('top')
+    timer = setInterval(function () {
+      var oTop = document.documentElement.scrollTop;
+      //设置速度由快到慢
+      var ispeed = Math.floor(oTop / 7);
+      document.documentElement.scrollTop = oTop - ispeed;
+      oScroll = true;
+      // console.log(oTop)
+      if (ispeed == 0) {
+        clearInterval(timer);
+      }
+    }, 10);
+  })
+}
+
+var bindEventSwiperControl = function () {
+  var prev = e('.swiper-flashsale-prev')
+  var next = e('.swiper-flashsale-next')
+  var wrapper = e('.swiper-wrapper')
+  var prevT = null;
+  var nextT = null;
+  var stop = null;
+  var prevTi = null;
+  var clearTI = function () {
+    clearInterval(prevTi)
+    clearInterval(stop)
+    clearTimeout(nextT)
+  }
+  stop = setInterval(() => {
+    clearInterval(prevTi)
+    // console.log('next')
+    wrapper.style = 'transform: translate3d(-992px, 0px, 0px);transition-duration: 1000ms;'
+
+    prevTi = setInterval(() => {
+      // console.log('prev')
+      wrapper.style = 'transform: translate3d(0px, 0px, 0px);transition-duration: 1000ms;'
+    }, 4000);
+  }, 8000);
+  // var index = wrapper.dataset.index
+  bindEvent(prev, 'click', function () {
+    clearTI()
+    wrapper.style = 'transform: translate3d(0px, 0px, 0px);transition-duration: 1000ms;'
+    prevT = setTimeout(() => {
+      wrapper.style = 'transform: translate3d(0px, 0px, 0px);transition-duration: 0ms;'
+    }, 1000);
+  })
+  bindEvent(next, 'click', function () {
+    clearTI()
+    clearTimeout(prevT)
+    wrapper.style = 'transform: translate3d(-992px, 0px, 0px);transition-duration: 1000ms;'
+    nextT = setTimeout(() => {
+      wrapper.style = 'transform: translate3d(-992px, 0px, 0px);transition-duration: 0ms;'
+    }, 2000);
+  })
+}
 
 
 
-
-var __main = function () {
+var bindEvents = function () {
   bindeventCartmenu()
   bindeventShowList()
+  bindEventBackTop()
+  bindEventSwiperControl()
+}
+
+var __main = function () {
+  bindEvents()
   sideChange()
+
 }
 __main()

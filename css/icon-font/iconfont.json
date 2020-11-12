@@ -6,6 +6,20 @@
   "description": "mi.com",
   "glyphs": [
     {
+      "icon_id": "7008930",
+      "name": "enter",
+      "font_class": "enter",
+      "unicode": "e6f8",
+      "unicode_decimal": 59128
+    },
+    {
+      "icon_id": "7008997",
+      "name": "return",
+      "font_class": "return",
+      "unicode": "e720",
+      "unicode_decimal": 59168
+    },
+    {
       "icon_id": "6282769",
       "name": "搜索",
       "font_class": "sousuo",
