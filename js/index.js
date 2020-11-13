@@ -164,6 +164,70 @@ var bindEventSwiperControl = function () {
   })
 }
 
+var getTime = function () {
+  var hour, minute, second, round, roundState
+  var dateNow = new Date()
+  var hourNow = dateNow.getHours()
+  var roundTime = new Date(dateNow.getTime())
+  var beginHour = hourNow >= 14 ? 14 : 0
+  var endHour = beginHour + 9
+  round = beginHour == 0 ? '00:00场' : '14:00场'
+  if (endHour < hourNow) {
+    console.log('++++++++++++++++++')
+    hour = '00'
+    minute = '00'
+    second = '00'
+    roundState = '本场已结束'
+    return {
+      hour,
+      minute,
+      second,
+      round,
+      roundState
+    }
+  } else {
+    roundTime.setHours(endHour)
+    roundTime.setMinutes(0)
+    roundTime.setSeconds(0)
+    var totalsecond = roundTime.getTime() - dateNow.getTime()
+    totalsecond /= 1000
+    hour = `0${Math.floor(totalsecond / 60 / 60)}`
+    minute = Math.floor((totalsecond - hour * 60 * 60) / 60)
+    minute = (minute - 10) >= 0 ? ('' + minute) : ('0' + minute)
+    second = Math.floor(totalsecond % 60)
+    second = (second - 10) >= 0 ? ('' + second) : ('0' + second)
+    roundState = '距离结束还有'
+    return {
+      hour,
+      minute,
+      second,
+      round,
+      roundState
+    }
+  }
+
+}
+
+var timeChange = function () {
+  var round = e('.round')
+  // xx 场 ps：00:00场
+  var hour = e('.hour')
+  // 小时 ps：00
+  var minute = e('.minute')
+  // 分钟 ps：00
+  var second = e('.second')
+  // 秒 ps：00
+  var roundState = e('.roundState')
+  setInterval(() => {
+    var timeNow = getTime()
+    round.innerHTML = timeNow.round
+    hour.innerHTML = timeNow.hour
+    minute.innerHTML = timeNow.minute
+    second.innerHTML = timeNow.second
+    roundState.innerHTML = timeNow.roundState
+  }, 1000);
+}
+
 
 
 var bindEvents = function () {
@@ -176,6 +240,6 @@ var bindEvents = function () {
 var __main = function () {
   bindEvents()
   sideChange()
-
+  timeChange()
 }
 __main()
