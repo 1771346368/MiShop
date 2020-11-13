@@ -930,7 +930,7 @@ li .price {
   padding: 20px 0;
 }
 
-.brick-list>.brick-item:hover {
+.brick-item:hover {
   box-shadow: 0 15px 30px rgba(0, 0, 0, .1);
   transform: translate3d(0, -2px, 0);
 }
@@ -969,3 +969,114 @@ li .price {
 }
 
 /* home-box 结束 */
+
+/* footer 开始 */
+
+.footer-service {
+  padding: 24px 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.footer-service>ul {
+  display: flex;
+}
+
+.footer-service>ul>li {
+  font-size: 16px;
+  flex-shrink: 0;
+  margin: 10px auto;
+  color: #666;
+  text-align: center;
+  line-height: 16px;
+}
+
+.list-service i {
+  font-size: 20px;
+  line-height: 20px;
+}
+
+.list-service>li>a {
+  color: #666;
+  transition: all .2s;
+}
+
+.list-service>li>a:hover {
+  color: #ff6700;
+}
+
+.footer-links {
+  padding: 40px 0;
+}
+
+.col-links {
+  float: left;
+  width: 160px;
+}
+
+.col-links>li {
+  display: block;
+  font-weight: 400;
+  font-size: 16px;
+  color: #444;
+  margin-bottom: 26px;
+}
+
+.col-links-item>li {
+  display: block;
+  color: #888;
+  margin: 10px 0;
+  cursor: pointer;
+}
+
+.col-links-item>li:hover {
+  color: #ff6700;
+}
+
+.col-contant {
+  float: right;
+  width: 251px;
+  text-align: center;
+  border-left: 1px solid #ccc;
+}
+
+.col-contant>p {
+  font-size: 12px;
+  color: #666;
+  margin: 5px auto;
+}
+
+.col-contant>.phone {
+  font-size: 22px;
+  color: #ff6700;
+}
+
+.col-contant>div {
+  color: #666;
+}
+
+.col-contant>div>i {
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.col-contant>div>i:hover {
+  color: #ff6700;
+}
+
+.btn-link {
+  display: inline-block;
+  width: 118px;
+  height: 28px;
+  font-size: 12px;
+  line-height: 28px;
+  color: #ff6700;
+  background-color: #fff;
+  border: 1px solid #ff6700;
+  margin-bottom: 7px;
+  transition: all .4s;
+}
+
+.btn-link:hover {
+  color: #fff;
+  background-color: #ff6700;
+}
