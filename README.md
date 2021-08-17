@@ -8,4 +8,4 @@
 
 ## 演示地址
 
-[演示地址](https://drghost.top/)
+[演示地址](https://codewhy.cc/)
